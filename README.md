@@ -44,41 +44,10 @@ Sou estudante de Análise e Desenvolvimento de Sistemas (ADS), desenvolvedor Ful
 
 ---
 
-name: generate animation
 
-on:
-  # Roda automaticamente todo dia à meia-noite
-  schedule:
-    - cron: "0 0 * * *"
-  
-  # Permite rodar manualmente pela aba Actions
-  workflow_dispatch:
-  
-  # Roda sempre que você atualizar a branch main
-  push:
-    branches:
-    - main
-
-jobs:
-  generate:
-    permissions:
-      contents: write
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    
-    steps:
-      - name: generate github-contribution-grid-snake.svg
-        uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-
-      - name: push github-contribution-grid-snake.svg to the output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
-        with:
-          target_branch: output
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ 
+   <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vhmsouza/vhmsouza/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/vhmsouza/vhmsouza/output/github-contribution-grid-snake.svg" />
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/vhmsouza/vhmsouza/output/github-contribution-grid-snake.svg" />
+</picture>
